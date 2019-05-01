@@ -1,10 +1,10 @@
-package com.favebiz.android.di.module
+package kz.kyrmyzyanik.userdetail.di.module
 
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import kz.kyrmyzyanik.userdetail.data.ApiService.AppDatabase
+import kz.kyrmyzyanik.userdetail.data.AppDatabase
 import javax.inject.Singleton
 
 @Module

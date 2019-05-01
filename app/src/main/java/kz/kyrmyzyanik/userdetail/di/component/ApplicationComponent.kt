@@ -1,16 +1,13 @@
 package kz.kyrmyzyanik.userdetail.di.component
 
 import android.app.Application
-import com.favebiz.android.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import kz.kyrmyzyanik.userdetail.UserDetailApplication
-import kz.kyrmyzyanik.userdetail.di.module.ActivityModule
-import kz.kyrmyzyanik.userdetail.di.module.NetworkModule
-import kz.kyrmyzyanik.userdetail.di.module.ViewModelModule
+import kz.kyrmyzyanik.userdetail.di.module.*
 import javax.inject.Singleton
 
 @Singleton

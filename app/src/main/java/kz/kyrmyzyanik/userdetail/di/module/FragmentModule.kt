@@ -1,4 +1,4 @@
-package com.favebiz.android.di.module
+package kz.kyrmyzyanik.userdetail.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

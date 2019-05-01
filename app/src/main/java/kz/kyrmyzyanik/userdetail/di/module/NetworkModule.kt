@@ -2,7 +2,7 @@ package kz.kyrmyzyanik.userdetail.di.module
 
 import dagger.Module
 import dagger.Provides
-import kz.kyrmyzyanik.userdetail.data.ApiService.ApiService
+import kz.kyrmyzyanik.userdetail.data.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -1,4 +1,4 @@
-package kz.kyrmyzyanik.userdetail.data.ApiService.dao
+package kz.kyrmyzyanik.userdetail.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

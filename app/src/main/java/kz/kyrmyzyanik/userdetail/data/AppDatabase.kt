@@ -1,8 +1,8 @@
-package kz.kyrmyzyanik.userdetail.data.ApiService
+package kz.kyrmyzyanik.userdetail.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import kz.kyrmyzyanik.userdetail.data.ApiService.dao.UserDao
+import kz.kyrmyzyanik.userdetail.data.dao.UserDao
 import kz.kyrmyzyanik.userdetail.model.User
 
 /**

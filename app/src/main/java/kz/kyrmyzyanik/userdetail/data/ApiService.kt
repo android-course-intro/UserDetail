@@ -1,4 +1,4 @@
-package kz.kyrmyzyanik.userdetail.data.ApiService
+package kz.kyrmyzyanik.userdetail.data
 
 import kz.kyrmyzyanik.userdetail.model.User
 import retrofit2.Call

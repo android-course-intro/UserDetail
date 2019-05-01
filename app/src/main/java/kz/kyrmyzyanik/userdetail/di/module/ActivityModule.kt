@@ -2,11 +2,12 @@ package kz.kyrmyzyanik.userdetail.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import kz.kyrmyzyanik.userdetail.ui.login.LoginActivity
 
 @Suppress("unused")
 @Module
 interface ActivityModule {
-//    @ContributesAndroidInjector
-//    fun contributeSplashActivity(): SplashActivity
+    @ContributesAndroidInjector
+    fun contributeLoginActivity(): LoginActivity
 
 }

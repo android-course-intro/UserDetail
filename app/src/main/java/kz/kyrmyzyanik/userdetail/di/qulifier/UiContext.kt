@@ -1,0 +1,1 @@
+package kz.kyrmyzyanik.userdetail.di.qulifierimport javax.inject.Qualifier/** * Annotation descibes MainThread Coroutine Context */@Qualifier@MustBeDocumented@Retention(AnnotationRetention.RUNTIME)annotation class UiContext

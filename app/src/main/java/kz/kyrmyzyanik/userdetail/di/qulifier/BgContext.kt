@@ -1,0 +1,1 @@
+package kz.kyrmyzyanik.userdetail.di.qulifierimport javax.inject.Qualifier/** * Annotation descibes BackgroundThread Coroutine Context */@Qualifier@MustBeDocumented@Retention(AnnotationRetention.RUNTIME)annotation class BgContext

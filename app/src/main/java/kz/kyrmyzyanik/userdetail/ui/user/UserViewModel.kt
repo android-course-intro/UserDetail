@@ -8,7 +8,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kz.kyrmyzyanik.userdetail.data.dao.UserDao
-import kz.kyrmyzyanik.userdetail.data.gateway.UsersGatewayImpl
+import kz.kyrmyzyanik.userdetail.data.gateway.UsersGateway
 import kz.kyrmyzyanik.userdetail.data.gateway.ApiResponse
 import kz.kyrmyzyanik.userdetail.di.qulifier.BgContext
 import kz.kyrmyzyanik.userdetail.di.qulifier.UiContext
@@ -17,7 +17,7 @@ import kz.kyrmyzyanik.userdetail.util.SingleLiveEvent
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class UserViewModel @Inject constructor(private val usersGateway: UsersGatewayImpl,
+class UserViewModel @Inject constructor(private val usersGateway: UsersGateway,
                                         private val userDao: UserDao,
                                         @UiContext
                                         private val uiContext: CoroutineContext,
@@ -42,18 +42,19 @@ class UserViewModel @Inject constructor(private val usersGateway: UsersGatewayIm
      * Method requests data from API and checks the status of response.
      */
     private fun requestUsers() = GlobalScope.launch(uiContext) {
+        isProgressBarVisible.set(true)
         val result = usersGateway.loadUsers()
 
         when (result) {
             is ApiResponse.Success -> {
-//                isProgressBarVisible.set(false)
+                isProgressBarVisible.set(false)
                 val users = withContext(bgContext) {
                     userDao.getUsers()
                 }
                 usersListLiveData.value = users
             }
             is ApiResponse.Error -> {
-//                isProgressBarVisible.set(false)
+                isProgressBarVisible.set(false)
                 showErrorToast.call()
             }
         }

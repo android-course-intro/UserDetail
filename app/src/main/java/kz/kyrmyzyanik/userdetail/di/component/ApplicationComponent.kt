@@ -1,11 +1,8 @@
 package kz.kyrmyzyanik.userdetail.di.component
 
-import android.app.Application
 import android.content.Context
-import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import kz.kyrmyzyanik.userdetail.UserDetailApplication
 import kz.kyrmyzyanik.userdetail.di.module.*
@@ -20,7 +17,6 @@ import javax.inject.Singleton
     ActivityModule::class,
     AndroidSupportInjectionModule::class,
     ViewModelModule::class,
-    FragmentModule::class,
 	DatabaseModule::class])
 
 interface ApplicationComponent  {

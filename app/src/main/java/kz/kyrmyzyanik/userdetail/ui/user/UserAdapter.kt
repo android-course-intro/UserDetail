@@ -14,14 +14,14 @@ import kz.kyrmyzyanik.userdetail.model.User
  * This Adapter delivers every single item for Recylerview.
  */
 class UserAdapter(private val userList: List<User>, private val context: Context) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-    private var onClickAction: (User) -> Unit = { _ -> }
+    private var onClickAction: (Int) -> Unit = { _ -> }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txtName?.text = userList[position].name
         holder.txtInfo?.text = "${userList[position].address.city} : ${userList[position].company.name}"
 
         holder.itemView.setOnClickListener {
-            onClickAction.invoke(userList[position])
+            onClickAction.invoke(userList[position].id)
         }
     }
 
@@ -34,7 +34,7 @@ class UserAdapter(private val userList: List<User>, private val context: Context
         return userList.size
     }
 
-    fun setOnClickListener(onClickAction: (User) -> Unit) {
+    fun setOnClickListener(onClickAction: (Int) -> Unit) {
         this.onClickAction = onClickAction
     }
 

@@ -17,3 +17,10 @@ fun bindTextWatcher(view: View, textWatcher: TextWatcher) {
 fun bindEnable(view: View, enable: Boolean) {
     view.isEnabled = enable
 }
+
+@BindingAdapter("visibility")
+fun setVisibility(view: View, value: Boolean?) {
+	value?.let {
+		view.visibility = if (it) View.VISIBLE else View.GONE
+	}
+}

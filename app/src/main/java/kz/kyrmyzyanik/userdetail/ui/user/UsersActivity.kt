@@ -17,6 +17,7 @@ import kz.kyrmyzyanik.userdetail.R
 import kz.kyrmyzyanik.userdetail.databinding.ActivityUserListBinding
 import kz.kyrmyzyanik.userdetail.di.Injectable
 import kz.kyrmyzyanik.userdetail.model.User
+import kz.kyrmyzyanik.userdetail.ui.detail.DetailActivity
 import javax.inject.Inject
 
 class UsersActivity : AppCompatActivity(), Injectable {
@@ -41,23 +42,8 @@ class UsersActivity : AppCompatActivity(), Injectable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
-
-        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_list)
-
-        adapter = UserAdapter(usersList, this)
-        list.also {
-            it.adapter = adapter.apply {
-                setOnClickListener {
-//                    val activity = this@FaveQRFragment.activity as MainActivity
-//                    activity.updateFilterStatus(screenName)
-                }
-            }
-            it.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-
-        }
-
-        dataBinding.viewModel = userViewModel
+        dataBind()
+        setUpViews()
 
         userViewModel.showErrorToast.observe(this, Observer {
             Toast.makeText(this@UsersActivity, R.string.error_msg, Toast.LENGTH_SHORT).show()
@@ -68,6 +54,26 @@ class UsersActivity : AppCompatActivity(), Injectable {
     override fun onResume() {
         super.onResume()
         loadData()
+    }
+
+    private fun dataBind() {
+        userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_list)
+        dataBinding.viewModel = userViewModel
+    }
+
+    private fun setUpViews() {
+        setTitle("User Lists")
+
+        adapter = UserAdapter(usersList, this)
+        list.also { it ->
+            it.adapter = adapter.apply {
+                setOnClickListener {id ->
+                    DetailActivity.start(this@UsersActivity, id)
+                }
+            }
+            it.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        }
     }
 
     /**

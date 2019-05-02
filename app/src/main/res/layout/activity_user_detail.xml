@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+                name="viewModel"
+                type="kz.kyrmyzyanik.userdetail.ui.detail.DetailViewModel"/>
+    </data>
+
+
+    <ScrollView
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.detail.DetailActivity">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="@{viewModel.name}"
+                    android:gravity="center_vertical"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.username}"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.email}"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.phone}"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.website}"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.company}"
+                    tools:text="manager@tedboybakery.com"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.address}"
+                    tools:text="manager@tedboybakery.com"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

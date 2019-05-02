@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UserDetail</string>
+
+    <string name="error_msg">Error Message</string>
 </resources>

@@ -15,10 +15,27 @@ data class User(
     @ColumnInfo(name = "username") @SerializedName("username") val username: String,
     @ColumnInfo(name = "email") @SerializedName("email") val email: String,
     @ColumnInfo(name = "phone") @SerializedName("phone") val phone: String,
-    @ColumnInfo(name = "website") @SerializedName("website") val website: String)
+    @ColumnInfo(name = "website") @SerializedName("website") val website: String,
+    @Embedded @SerializedName("company") val company: Company,
+    @Embedded @SerializedName("address") val address: Address)
 
-//data class Address(
-//    @ColumnInfo(name = "street") @SerializedName("street") val street: String,
-//    @ColumnInfo(name = "suite") @SerializedName("suite") val suite: String,
-//    @ColumnInfo(name = "city") @SerializedName("city") val city: String,
-//    @ColumnInfo(name = "zipcode") @SerializedName("zipcode") val zipcode: String)
+
+data class Company(
+    @ColumnInfo(name = "company_name") @SerializedName("name") val name: String,
+    @ColumnInfo(name = "catchPhrase") @SerializedName("catchPhrase") val catchPhrase: String,
+    @ColumnInfo(name = "bs") @SerializedName("bs") val bs: String)
+
+
+
+data class Address(
+    @ColumnInfo(name = "street") @SerializedName("street") val street: String,
+    @ColumnInfo(name = "suite") @SerializedName("suite") val suite: String,
+    @ColumnInfo(name = "city") @SerializedName("city") val city: String,
+    @ColumnInfo(name = "zipcode") @SerializedName("zipcode") val zipcode: String,
+    @Embedded @SerializedName("geo") val geo: Geo)
+
+
+data class Geo(
+    @ColumnInfo(name = "lat") @SerializedName("lat") val lat: String,
+    @ColumnInfo(name = "lng") @SerializedName("lng") val lng: String)
+

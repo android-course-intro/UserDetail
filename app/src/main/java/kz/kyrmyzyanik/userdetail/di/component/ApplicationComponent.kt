@@ -1,6 +1,7 @@
 package kz.kyrmyzyanik.userdetail.di.component
 
 import android.app.Application
+import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -12,7 +13,8 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    AppModule::class,
+    ApplicationModule::class,
+    CoroutineModule::class,
     NetworkModule::class,
     AndroidInjectionModule::class,
     ActivityModule::class,
@@ -21,14 +23,11 @@ import javax.inject.Singleton
     FragmentModule::class,
 	DatabaseModule::class])
 
-interface ApplicationComponent : AndroidInjector<UserDetailApplication> {
+interface ApplicationComponent  {
 
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        fun application(application: Application): ApplicationComponent.Builder
+    fun application(): UserDetailApplication
 
-        fun build(): ApplicationComponent
-    }
+    fun applicationContext(): Context
 
+    fun inject(dataController: UserDetailApplication)
 }
